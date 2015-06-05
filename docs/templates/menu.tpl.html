@@ -1,0 +1,5 @@
+<ul class="nav nav-sidebar" ng-repeat="menuItem in menuList track by $index">
+    <li ui-sref-active="active" ng-repeat="menu in menuItem.menus track by $index">
+        <a ui-sref="{{menu.state}}" ng-bind="menu.title"></a>
+    </li>
+</ul>
