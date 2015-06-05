@@ -7,8 +7,12 @@
 (function (window, angular) {
     'use strict';
 
-    var ngValidationDocsModule = angular.module('ngValidationDocs', ['ngValidation']);
+    var ngValidationDocsModule = angular.module('ngValidationDocs', ['ui.router', 'ngValidation']);
 
+    ngValidationDocsModule.config(['$urlRouterProvider', function ($urlRouterProvider) {
+        // 默认打开
+        $urlRouterProvider.otherwise('/');
+    }]);
 
     ngValidationDocsModule.controller('AppController', ['$scope', function ($scope) {
         $scope.title = 'ngValidation Documentation and Examples';
