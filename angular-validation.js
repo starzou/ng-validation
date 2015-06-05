@@ -9,6 +9,29 @@
 (function (window, angular, undefined) {
     'use strict';
 
+    /**
+     * 需要验证的表单 元素
+     * @param element
+     * @param controller
+     * @constructor
+     */
+    function ValidationForm(element, controller, fields) {
+        this.element = element;
+        this.controller = controller;
+        this.fields = fields || [];
+    }
+
+    /**
+     * 需要验证的字段 元素
+     * @param element
+     * @param controller
+     * @constructor
+     */
+    function ValidationField(element, controller) {
+        this.element = element;
+        this.controller = controller;
+    }
+
     angular.module('ngValidation', ['ng']).
 
         provider('validationMessage', function () {
