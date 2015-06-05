@@ -7,6 +7,7 @@
   "description": "angular form validation",
   "main": "./angular-validation.js",
   "keywords": [
+    "ng-validation",
     "ngValidation",
     "angular",
     "angularJs",
