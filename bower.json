@@ -2,7 +2,7 @@
   "name": "angular-validation",
   "version": "1.0.0",
   "authors": [
-    "StarZou <zoutongyuan@163.com>"
+    "StarZou <tongyuanzou@gmail.com>"
   ],
   "description": "angular form validation",
   "main": "./angular-validation.js",
