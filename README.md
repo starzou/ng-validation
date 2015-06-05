@@ -27,5 +27,5 @@ Author  StarZou
 ```
 
 ```
-Email  ：tongyuanzou@gmail.com  
+Email : tongyuanzou@gmail.com  
 ```
