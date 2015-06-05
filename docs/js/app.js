@@ -11,7 +11,28 @@
 
     ngValidationDocsModule.config(['$urlRouterProvider', function ($urlRouterProvider) {
         // 默认打开
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/docs/overview');
+    }]);
+
+    /**
+     * 路由配置
+     */
+    ngValidationDocsModule.config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.
+
+            state('docs', {
+                abstract: true,
+                url     : '/docs'
+            }).
+
+            state('docs.overview', {
+                url  : '/overview',
+                views: {
+                    '@': {
+                        templateUrl: 'templates/overview.tpl.html'
+                    }
+                }
+            });
     }]);
 
     ngValidationDocsModule.controller('AppController', ['$scope', function ($scope) {
@@ -27,7 +48,7 @@
             replace    : true,
             scope      : true,
             templateUrl: 'templates/menu.tpl.html',
-            link       : function ($scope, $element, $attrs) {
+            link       : function ($scope) {
                 $scope.menuList = [
                     {
                         type : 'docs',
