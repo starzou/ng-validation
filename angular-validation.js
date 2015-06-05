@@ -21,6 +21,17 @@
         this.fields = fields || [];
     }
 
+    // 注册字段
+    ValidationForm.prototype.register = function (field) {
+        this.fields.push(field);
+    };
+
+    // 解绑字段
+    ValidationForm.prototype.unregister = function (field) {
+        var index = this.fields.indexOf(field);
+        this.fields.splice(index, 1);
+    };
+
     /**
      * 需要验证的字段 元素
      * @param element
