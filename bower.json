@@ -23,7 +23,8 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "docs"
   ],
   "dependencies": {
     "angular": "^1.3.1"
