@@ -32,6 +32,15 @@
                         templateUrl: 'templates/overview.tpl.html'
                     }
                 }
+            }).
+
+            state('docs.general', {
+                url  : '/general',
+                views: {
+                    '@': {
+                        templateUrl: 'templates/general.tpl.html'
+                    }
+                }
             });
     }]);
 

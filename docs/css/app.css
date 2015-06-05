@@ -107,3 +107,8 @@ body {
     display: inline-block;
     border-radius: 50%;
 }
+
+.post-content {
+    font-size: 16px;
+    line-height: 1.8;
+}
