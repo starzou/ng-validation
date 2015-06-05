@@ -72,6 +72,25 @@
                 return validator;
             }];
 
-        });
+        }).
+
+        directive('validationForm', [function () {
+
+            return {
+                restrict: 'A',
+                require : 'form',
+                compile : function compile($element, $attrs) {
+
+                    return function postLink($scope, $element, $attrs, ngFormController) {
+
+                    };
+                }
+            }
+
+        }]).
+
+        directive('validationField', [function () {
+
+        }]);
 
 })(window, window.angular);
