@@ -28,6 +28,16 @@
                 return defaults;
             }];
 
+        }).
+
+        provider('validator', function () {
+
+            this.$get = [function () {
+                var validator = {};
+
+                return validator;
+            }];
+
         });
 
 })(window, window.angular);
