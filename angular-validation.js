@@ -16,7 +16,8 @@
      * @constructor
      */
     function ValidationForm(element, controller, fields) {
-        this.element = element;
+        this.$element = element;
+        this.element = element[0];
         this.controller = controller;
         this.fields = fields || [];
     }
@@ -39,10 +40,14 @@
      * @constructor
      */
     function ValidationField(element, controller) {
-        this.element = element;
+        this.$element = element;
+        this.element = element[0];
         this.controller = controller;
     }
 
+    /**
+     * ngValidation module
+     */
     angular.module('ngValidation', ['ng']).
 
         provider('validationMessage', function () {
@@ -80,9 +85,17 @@
                 restrict: 'A',
                 require : 'form',
                 compile : function compile($element, $attrs) {
+                    // 表单元素
+                    var formElement = $element[0];
+
+                    // 使原生浏览器的校验无效
+                    formElement.noValidate = true;
 
                     return function postLink($scope, $element, $attrs, ngFormController) {
 
+                        var validationForm = new ValidationForm($element, ngFormController);
+
+                        console.log(validationForm);
                     };
                 }
             }
@@ -90,6 +103,24 @@
         }]).
 
         directive('validationField', [function () {
+
+            return {
+                restrict: 'A',
+                require : ['ngModel', '?^validationForm'],
+                compile : function compile($element, $attrs) {
+
+                    return function postLink($scope, $element, $attrs, controllers) {
+
+                        var ngModelController = controllers[0],
+                            validationFormController = controllers[1];
+
+                        var validationField = new ValidationField($element, ngModelController);
+
+                        console.log(validationField, validationFormController);
+
+                    };
+                }
+            }
 
         }]);
 
