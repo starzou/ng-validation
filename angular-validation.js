@@ -87,10 +87,13 @@
                             var errorTypes = Object.keys(ngModelController.$error),
                                 errorType = errorTypes[0];
 
-                            // 消息
-                            var message = validationMessage.messages[errorType] || validationMessage.defaultMessage;
+                            // 取 自定义错误消息
+                            var message = $parse(validationField.$element.attr('message'))();
 
-                            console.log(errorType, message, ngModelController);
+                            // 消息
+                            var msg = (message && message[errorType]) || validationMessage.messages[errorType] || validationMessage.defaultMessage;
+
+                            console.log(errorType, msg, ngModelController);
                         } else {
                             // 验证通过
                         }
