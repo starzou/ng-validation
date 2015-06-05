@@ -1,0 +1,30 @@
+{
+  "name": "angular-validation",
+  "version": "1.0.0",
+  "authors": [
+    "StarZou <zoutongyuan@163.com>"
+  ],
+  "description": "angular form validation",
+  "main": "./angular-validation.js",
+  "keywords": [
+    "ngValidation",
+    "angular",
+    "angularJs",
+    "form",
+    "validation",
+    "angular validation",
+    "validator"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/starzou/angular-validation",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.3.1"
+  }
+}

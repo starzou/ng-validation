@@ -1,0 +1,28 @@
+{
+  "name": "angular-validation",
+  "version": "1.0.0",
+  "description": "angular form validation",
+  "main": "index.js",
+  "homepage": "https://github.com/starzou/angular-validation",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/starzou/angular-validation"
+  },
+  "bugs": {
+    "url": "https://github.com/starzou/angular-validation/issues"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ngValidation",
+    "angular",
+    "angularjs",
+    "form",
+    "validation",
+    "angular validation",
+    "validator"
+  ],
+  "author": "StarZou <zoutongyuan@163.com>",
+  "license": "MIT"
+}
