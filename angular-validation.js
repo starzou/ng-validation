@@ -60,7 +60,9 @@
                     email    : 'Email无效！',
                     url      : 'URL无效！',
                     pattern  : '格式不正确！'
-                }
+                },
+
+                defaultMessage: '验证不通过！'
             };
 
             this.$get = [function () {
@@ -71,8 +73,29 @@
 
         provider('validator', function () {
 
-            this.$get = [function () {
-                var validator = {};
+            this.$get = ['$parse', 'validationMessage', function ($parse, validationMessage) {
+                var validator = {
+
+                    // 验证字段
+                    validateField: function (validationField) {
+                        var ngModelController = validationField.controller;
+
+                        if (ngModelController.$dirty && ngModelController.$invalid) {
+                            // 验证不通过
+
+                            // 取 错误类型
+                            var errorTypes = Object.keys(ngModelController.$error),
+                                errorType = errorTypes[0];
+
+                            // 消息
+                            var message = validationMessage.messages[errorType] || validationMessage.defaultMessage;
+
+                            console.log(errorType, message, ngModelController);
+                        } else {
+                            // 验证通过
+                        }
+                    }
+                };
 
                 return validator;
             }];
@@ -102,7 +125,7 @@
 
         }]).
 
-        directive('validationField', [function () {
+        directive('validationField', ['$timeout', 'validator', function ($timeout, validator) {
 
             return {
                 restrict: 'A',
@@ -111,10 +134,27 @@
 
                     return function postLink($scope, $element, $attrs, controllers) {
 
+                        // controllers
                         var ngModelController = controllers[0],
                             validationFormController = controllers[1];
 
+                        // validationField
                         var validationField = new ValidationField($element, ngModelController);
+
+
+                        // 包装验证字段方法
+                        function warpValidateField(value) {
+                            $timeout(function () {
+                                validator.validateField(validationField);
+                            });
+                            return value;
+                        }
+
+                        //For DOM -> Model validation
+                        ngModelController.$parsers.push(warpValidateField);
+
+                        //For Model -> DOM validation
+                        ngModelController.$formatters.push(warpValidateField);
 
                         console.log(validationField, validationFormController);
 
