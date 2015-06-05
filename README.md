@@ -22,7 +22,6 @@ Copyright (c) 2015 StarZou. https://github.com/starzou
 
 Licensed under the MIT license.
 
-## If you have a better suggestion,Please share out,Let's do better.
 ```
 Author  StarZou  
 ```
