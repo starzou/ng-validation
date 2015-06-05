@@ -17,7 +17,7 @@
     "validator"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/starzou/angular-validation",
+  "homepage": "https://github.com/starzou/ng-validation",
   "ignore": [
     "**/.*",
     "node_modules",
