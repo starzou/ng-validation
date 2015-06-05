@@ -21,11 +21,3 @@ bower install ng-validation
 Copyright (c) 2015 StarZou. https://github.com/starzou
 
 Licensed under the MIT license.
-
-```
-Author  StarZou  
-```
-
-```
-Email : tongyuanzou@gmail.com  
-```
