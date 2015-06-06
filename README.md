@@ -48,6 +48,11 @@ $ bower install ng-validation --save
 angular.module('myApp', ['ngValidation']);
 ```
 
++ Example
+
+>
+[![image](https://github.com/starzou/ng-validation/blob/gh-pages/docs/images/ng-validation.png)](http://starzou.github.io/ng-validation/docs/index.html)
+
 
 ## Communication
 
