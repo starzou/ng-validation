@@ -57,22 +57,18 @@ angular.module('myApp', ['ngValidation']);
         <label for="userName">用户名</label>
         <input ng-model="user.userName" validation-field required minlength="3" type="text" class="form-control" id="userName" placeholder="Enter UserName">
     </div>
-
     <div class="form-group">
         <label for="userEmail">邮箱</label>
         <input ng-model="user.email" validation-field required message="{email:'请输入正确的邮箱'}" type="email" class="form-control" id="userEmail" placeholder="Enter Email">
     </div>
-
     <div class="form-group">
         <label for="userPassword">密码</label>
         <input ng-model="user.password" validation-field required minlength="6" type="password" class="form-control" id="userPassword" placeholder="Enter Password">
     </div>
-
     <div class="form-group">
         <label for="website">网站</label>
         <input ng-model="user.website" validation-field required type="url" class="form-control" id="website" placeholder="Enter Website">
     </div>
-
     <button type="submit" class="btn btn-default">注册</button>
 </form>
 ```
