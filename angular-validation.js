@@ -88,12 +88,10 @@
                     };
 
                     $tooltip.position = function () {
-                        var elementPosition = $dimensions.getPosition($element[0], false);
-
-                        var tooltipWidth = tooltipElement.prop('offsetWidth'),
-                            tooltipHeight = tooltipElement.prop('offsetHeight');
-
-                        var tooltipPosition = $dimensions.getCalculatedOffset(options.placement, elementPosition, tooltipWidth, tooltipHeight);
+                        var elementPosition = $dimensions.getPosition($element[0], false),
+                            tooltipWidth = tooltipElement.prop('offsetWidth'),
+                            tooltipHeight = tooltipElement.prop('offsetHeight'),
+                            tooltipPosition = $dimensions.getCalculatedOffset(options.placement, elementPosition, tooltipWidth, tooltipHeight);
 
                         tooltipPosition.top += 'px';
                         tooltipPosition.left += 'px';
@@ -107,7 +105,6 @@
 
                         tooltipElement.css({top: '-9999px', left: '-9999px'});
                         tooltipElement.addClass(options.placement);
-
                         $element.after(tooltipElement);
 
                         $timeout(this.position);
