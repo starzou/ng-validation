@@ -25,5 +25,10 @@
     "validator"
   ],
   "author": "StarZou <tongyuanzou@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "3.8.10",
+    "gulp-uglify": "1.0.1",
+    "gulp-rename": "1.2.2"
+  }
 }
