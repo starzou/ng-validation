@@ -50,6 +50,65 @@
      */
     angular.module('ngValidation', ['ng']).
 
+        provider('$tooltip', function () {
+            var defaults = this.defaults = {
+                show    : true,
+                template: [
+                    '<div class="tooltip right fade in" ng-show="show && title">',
+                    '<div class="tooltip-arrow" style="border-right-color: #d9534f;"></div>',
+                    '<div class="tooltip-inner" style="background-color: #d9534f;" ng-bind="title"></div>',
+                    '</div>'
+                ].join('')
+            };
+
+            this.$get = ['$rootScope', '$compile', '$timeout', function ($rootScope, $compile, $timeout) {
+                function TooltipFactory($element, config) {
+                    var $tooltip = {},
+                        options = $tooltip.$options = angular.extend({}, defaults, config),
+                        scope = $tooltip.$scope = options.scope && options.scope.$new() || $rootScope.$new(),
+                        tooltipElement = angular.element(options.template),
+                        tooltipLinker = $compile(tooltipElement);
+
+                    $tooltip.destroy = function () {
+                        tooltipElement.remove();
+                        scope.$destroy();
+                    };
+
+                    $tooltip.setScope = function (option) {
+                        if (!option) {
+                            return;
+                        }
+
+                        angular.forEach(['title', 'show'], function (key) {
+                            if (angular.isDefined(option[key])) {
+                                scope[key] = option[key];
+                            }
+                        });
+                    };
+
+                    $tooltip.init = function () {
+                        this.setScope(options);
+                        tooltipLinker(scope);
+                        $element.after(tooltipElement);
+                    };
+
+                    $tooltip.show = function (option) {
+                        this.setScope(angular.extend({show: true}, option));
+                    };
+
+                    $tooltip.hide = function () {
+                        this.setScope({show: false});
+                    };
+
+                    $tooltip.init();
+
+                    return $tooltip;
+                }
+
+                return TooltipFactory;
+            }];
+        }).
+
         provider('validationMessage', function () {
             var defaults = this.defaults = {
                 messages: {
@@ -91,7 +150,7 @@
 
         provider('validator', function () {
 
-            this.$get = ['$parse', 'validationMessage', function ($parse, validationMessage) {
+            this.$get = ['$parse', 'validationMessage', '$tooltip', function ($parse, validationMessage, $tooltip) {
                 var validator = {
 
                     // 验证字段
@@ -112,8 +171,32 @@
                             var msg = (message && message[errorType]) || validationMessage.messages[errorType] || validationMessage.defaultMessage;
 
                             console.log(errorType, msg, ngModelController);
+
+                            validator.showMessage(validationField, msg);
                         } else {
                             // 验证通过
+                            validator.hideMessage(validationField);
+                        }
+                    },
+
+                    showMessage: function (validationField, message) {
+                        var $element = validationField.$element,
+                            tooltip = $element.data('tooltip');
+
+                        if (tooltip) {
+                            tooltip.show({title: message});
+                        } else {
+                            tooltip = $tooltip(validationField.$element, {title: message});
+                            $element.data('tooltip', tooltip);
+                        }
+
+                        console.log(tooltip);
+                    },
+
+                    hideMessage: function (validationField) {
+                        var tooltip = validationField.$element.data('tooltip');
+                        if (tooltip) {
+                            tooltip.hide();
                         }
                     }
                 };
