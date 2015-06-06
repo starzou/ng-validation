@@ -8,13 +8,13 @@ You can install this package either with `npm` or with `bower`.
 Install with npm
 
 ```
-npm install ng-validation
+npm install ng-validation --save
 ```
 
 or with bower
 
 ```
-bower install ng-validation
+bower install ng-validation --save
 ```
 
 ## License
