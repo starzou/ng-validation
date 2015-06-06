@@ -65,6 +65,24 @@
                 defaultMessage: '验证不通过！'
             };
 
+            /**
+             * 设置 defaults.messages  {errorType : message, ...}
+             * @param messages
+             * @returns defaults.messages
+             */
+            this.setMessages = function (messages) {
+                return angular.extend(defaults.messages, messages);
+            };
+
+            /**
+             * 设置 defaults
+             * @param defaults
+             * @returns defaults
+             */
+            this.setDefaults = function (defaults) {
+                return angular.extend(this.defaults, defaults);
+            };
+
             this.$get = [function () {
                 return defaults;
             }];
