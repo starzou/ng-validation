@@ -19,11 +19,6 @@ bower install ng-validation --save
 ```
 
 
-## Documentation and examples
-
-+ Check the [Documentation](http://starzou.github.io/ng-validation/docs/index.html) and [Change Log](https://github.com/starzou/ng-validation/releases).
-
-
 ## Quick start
 
 + Install ng-validation with [Bower](https://github.com/bower/bower).
@@ -77,6 +72,11 @@ angular.module('myApp', ['ngValidation']);
 
 >
 [![image](https://github.com/starzou/ng-validation/blob/gh-pages/docs/images/ng-validation.png)](http://starzou.github.io/ng-validation/docs/index.html)
+
+
+## Documentation and examples
+
++ Check the [Documentation](http://starzou.github.io/ng-validation/docs/index.html) and [Change Log](https://github.com/starzou/ng-validation/releases).
 
 
 ## Communication
