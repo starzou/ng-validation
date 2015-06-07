@@ -1,0 +1,23 @@
+{
+  "name": "ng-validation-docs",
+  "version": "1.0.0",
+  "homepage": "https://github.com/starzou/ng-validation",
+  "authors": [
+    "StarZou <zoutongyuan@163.com>"
+  ],
+  "description": "ng-validation Documentation and Examples",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "bootstrap": "~3.3.4",
+    "ui-router": "~0.2.15"
+  }
+}
